@@ -1,2 +1,2 @@
 # swe-studies
-Repo to track of my personal Software Engineering concepts I'm currently studying
+Repo to keep track of the Software Engineering concepts I'm currently studying
