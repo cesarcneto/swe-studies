@@ -1,8 +1,8 @@
 package dev.cesarcneto;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
 public class TreeIncludes {
 
@@ -29,7 +29,7 @@ public class TreeIncludes {
     private static boolean treeIncludesBdf(Node root, String target) {
       if(root == null) return false;
   
-      Queue<Node> queue = new LinkedList<>(List.of(root));
+      Deque<Node> queue = new ArrayDeque<>(List.of(root));
       while(!queue.isEmpty()) {
         Node current = queue.poll();
         if (current.value().equals(target)) return true;

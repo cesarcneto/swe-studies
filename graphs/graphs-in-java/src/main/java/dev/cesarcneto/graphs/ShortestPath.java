@@ -2,11 +2,11 @@ package dev.cesarcneto.graphs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 import java.util.Set;
 import java.util.function.BiFunction;
 
@@ -22,7 +22,7 @@ public class ShortestPath {
   static Map<String, List<String>> buildGraph(List<List<String>> edges) {
 
     Map<String, List<String>> graph = new HashMap<>();
-    for (List<String> item : edgeList) {
+    for (List<String> item : edges) {
       assert item.size() == 2;
       String[] edge = item.toArray(new String[item.size()]);
       graph.merge(edge[0], List.of(edge[1]), remapEdge());
@@ -52,10 +52,10 @@ public class ShortestPath {
   static int shortestPath(List<List<String>> edges, String src, String dst) {
 
     Map<String, List<String>> graph = buildGraph(edges);
-    Queue<NodePathLength> queue = new ArrayDeque<>(List.of(new NodePathLength(src, 0)));
-    Set<String> visitedNodes = new LinkedHashSet<String>(List.of(src));
+    Deque<NodePathLength> queue = new ArrayDeque<>(List.of(new NodePathLength(src, 0)));
+    Set<String> visitedNodes = new LinkedHashSet<>(List.of(src));
 
-    while (queue.size() > 0) {
+    while (!queue.isEmpty()) {
 
       NodePathLength currentNode = queue.poll();
       if(currentNode.label().equals(dst)) {

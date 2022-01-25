@@ -6,9 +6,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class BreadthFirstValues {
 
@@ -37,7 +35,7 @@ public class BreadthFirstValues {
 
     List<String> result = new ArrayList<>();
 
-    Queue<Node> queue = new LinkedList<>(List.of(root));
+    Deque<Node> queue = new ArrayDeque<>(List.of(root));
     while(!queue.isEmpty()) {
       Node current = queue.poll();
       result.add(current.value());

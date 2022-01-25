@@ -1,9 +1,10 @@
 package dev.cesarcneto.graphs;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
+import java.util.Objects;
 
 public class HasPath {
 
@@ -15,9 +16,9 @@ public class HasPath {
       "k", List.of());
 
   static boolean hasPathBdf(Map<String, List<String>> graph, String srcNode, String dstNode) {
-    Queue<String> queue = new LinkedList<String>(List.of(srcNode));
+    Deque<String> queue = new LinkedList<>(List.of(srcNode));
 
-    while (queue.size() > 0) {
+    while (!queue.isEmpty()) {
       String currentNode = queue.poll();
       if (currentNode == dstNode)
         return true;
@@ -31,7 +32,7 @@ public class HasPath {
   }
 
   static boolean hasPathDpf(Map<String, List<String>> graph, String srcNode, String dstNode) {
-    if (srcNode == dstNode)
+    if (Objects.equals(srcNode, dstNode))
       return true;
 
     for (String neighbour : graph.get(srcNode)) {

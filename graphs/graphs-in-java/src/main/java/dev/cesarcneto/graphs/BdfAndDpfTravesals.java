@@ -2,10 +2,8 @@ package dev.cesarcneto.graphs;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 public class BdfAndDpfTravesals {
 
@@ -20,7 +18,7 @@ public class BdfAndDpfTravesals {
   static void depthFirstPrint(Map<String, List<String>> graph, String source) {
     Deque<String> stack = new ArrayDeque<>(List.of(source));
     
-    while (stack.size() > 0) {
+    while (!stack.isEmpty()) {
       String currentNode = stack.pop();
       System.out.println(currentNode);
 
@@ -31,9 +29,9 @@ public class BdfAndDpfTravesals {
   }
 
   static void breadthFirstPrint(Map<String, List<String>> graph, String source) {
-    Queue<String> queue = new LinkedList<>(List.of(source));
+    Deque<String> queue = new ArrayDeque<>(List.of(source));
 
-    while(queue.size() > 0) {
+    while(!queue.isEmpty()) {
       String currentNode = queue.poll();
       System.out.println(currentNode);
 
