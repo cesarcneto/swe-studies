@@ -2,9 +2,9 @@ package dev.cesarcneto;
 
 import static java.lang.Math.min;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
 public class TreeMinValue {
 
@@ -33,7 +33,7 @@ public class TreeMinValue {
   
       int minValue = Integer.MAX_VALUE;
 
-      Queue<Node> queue = new LinkedList<>(List.of(root));
+      Deque<Node> queue = new ArrayDeque<>(List.of(root));
       while(!queue.isEmpty()) {
         Node current = queue.poll();
         minValue = min(minValue, current.value());

@@ -1,8 +1,8 @@
 package dev.cesarcneto;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
 public class TreeSum {
 
@@ -31,7 +31,7 @@ public class TreeSum {
   
       int sum = 0;
 
-      Queue<Node> queue = new LinkedList<>(List.of(root));
+      Deque<Node> queue = new ArrayDeque<>(List.of(root));
       while(!queue.isEmpty()) {
         Node current = queue.poll();
         sum += current.value();
